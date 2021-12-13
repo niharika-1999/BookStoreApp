@@ -1,0 +1,137 @@
+.displayBook {
+    margin-bottom: 60px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 164px;
+    right: 174px;
+    opacity: 1;
+  }
+  .topContent {
+    font-size: 20px;
+    font: normal normal normal 25px/30px Lato;
+    letter-spacing: 0px;
+    color: #0a0102;
+    opacity: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .allBooks {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .bookContainer {
+    position: relative;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    margin: 5px 5px 15px 5px;
+    // height: 280px;
+    // width: 222px;
+    width: 235px;
+    height: 315px;
+  }
+  .bookSize {
+    font-size: 12px;
+    font-weight: normal;
+    font: normal normal normal 12px/13px Lato;
+    letter-spacing: 0px;
+    color: #9d9d9d;
+    opacity: 1;
+  }
+  .imageContainer {
+    background-color: #f5f5f5;
+    height: 50%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .infoContainer {
+    padding: 15px 20px 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  select {
+    padding: 2px 25px 2px 2px !important;
+    background-color: white;
+  }
+  .buttonContainer {
+    display: flex;
+    justify-content: space-around;
+  }
+  .bookImage {
+    width: 90px;
+  }
+  .bookContainer:hover .descClass {
+    display: flex;
+  }
+  .descClass {
+    display: none;
+    position: relative;
+    font-size: 50%;
+    text-align: start;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px lightgray solid;
+    z-index: 10;
+    box-shadow: 1px 2px lightgray;
+    padding: 5px;
+    bottom: 90%;
+    left: 90%;
+  }
+  .pagination-box {
+    position: inherit;
+    top: 983px;
+    left: 365px;
+    width: 527px;
+    height: 37px;
+    opacity: 1;
+  }
+  .pagination {
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 5em;
+  }
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  .pagination a.active {
+    background-color: #8F2B2F;
+    color: white;
+  }
+  .page-item {
+    color: black;
+    float: left;
+    font-size: 0.75em;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  .page-link {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .displayBook {
+      width: 90%;
+    }
+    .allBooks {
+      justify-content: center;
+    }
+    .bookContainer {
+      width: 100%;
+    }
+  }

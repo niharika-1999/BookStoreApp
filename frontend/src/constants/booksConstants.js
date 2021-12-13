@@ -1,0 +1,6 @@
+export const ActionTypes = {
+    SET_BOOKS:"SET_BOOKS",
+    SET_SEARCHED_BOOKS:"SET_SEARCHED_BOOKS",
+    SORT_BY_PRICE: "SORT_BY_PRICE",
+    CURRENT_PAGE: "CURRENT_PAGE"
+  };
