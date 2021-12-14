@@ -8,6 +8,7 @@ import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import { setCart } from "../actions/booksAction";
 import { useDispatch } from "react-redux";
 import { deleteItems, create } from "../service/cartService";
+import CustomerDetails from "./CustomerDetails";
 
 export default function Cart({ cart }) {
   const classes = useStyles();
@@ -35,12 +36,23 @@ export default function Cart({ cart }) {
   };
   const placeOrder = () => {
     setShowCustomer(true);
-  };
+    if(cart.items.length === 0) {
+        setShowCustomer(false);
+        console.log(cart.items.length);
+        window.location="/dashboard";
+      }
+    };
+    const checkCart = () => {
+      if(cart.items.length === 0) {
+        console.log(cart.items.length);
+        window.location="/dashboard";
+      }
+    }
   return (
     <>
       <Paper
         variant="outlined"
-        sx={{ m: { xs: 2, md: 6 }, p: { xs: 2, md: 3 } ,maxWidth:'500px' }}
+        sx={{ m: { xs: 2, md: 6 }, p: { xs: 2, md: 3 } ,maxWidth:'300px' }}
       >
         <Typography variant="h6" style={{paddingLeft:"2em", paddingTop:"1em"}} gutterBottom>
           My Cart ({cart.items.length} items)
@@ -52,12 +64,12 @@ export default function Cart({ cart }) {
               <img className="bookImage" src={data.image} alt="" />
             </Grid>
             <Grid item xs={8}>
-              <div className="infoContainer">
-                <Typography className={classes.bookName} style={{fontSize:"17px", color:"#0A0102", fontFamily:"Lato", paddingBottom:"0.35em"}}>
+              <div className="infoContainer" >
+                <Typography className={classes.bookName} style={{fontSize:"20px", color:"#0A0102", fontFamily:"Lato", paddingBottom:"0.35em"}}>
                   {" "}
                   {data.name}{" "}
                 </Typography>
-                <Typography className={classes.bookAuthor} style={{fontSize:"12px", color:"#9D9D9D", fontFamily:"Lato", paddingBottom:"0.35em"}}>
+                <Typography className={classes.bookAuthor} style={{fontSize:"15px", color:"#9D9D9D", fontFamily:"Lato", paddingBottom:"0.35em"}}>
                   by {" "}
                   {data.author}{" "}
                 </Typography>
@@ -65,7 +77,7 @@ export default function Cart({ cart }) {
                 <b>Rs. {data.price}{" "}</b>
                 </Typography>
               </div>
-              <div class="quantity-operations">
+              <div class="quantity-operations" align="left">
                 <IconButton
                   onClick={() => {
                     handleQuantity(data.productId, -1);
@@ -91,6 +103,7 @@ export default function Cart({ cart }) {
                   variant="text"
                   onClick={() => {
                     handleRemove(data.productId);
+                    checkCart();
                   }}
                 >
                   Remove
@@ -111,6 +124,7 @@ export default function Cart({ cart }) {
         </Button>
         </div>
       </Paper>
+      <CustomerDetails showCustomer={showCustomer}  />
     </>
   );
 }

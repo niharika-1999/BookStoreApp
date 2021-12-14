@@ -1,8 +1,7 @@
 const { body, validationResult } = require("express-validator");
 
 /**
- * validation rules set for user details with express validator
- * @returns error messages
+ * validation rules set for user details 
  */
 const userValidationRules = () => {
   return [
@@ -14,10 +13,6 @@ const userValidationRules = () => {
 };
 /**
  * to print the error messages
- * @param {Object} req
- * @param {Object} res
- * @param {next} next
- * @returns status message with error message
  */
 const validate = (req, res, next) => {
   const errors = validationResult(req);

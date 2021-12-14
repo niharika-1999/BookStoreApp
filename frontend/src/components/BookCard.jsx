@@ -82,6 +82,7 @@ export default function BookCard() {
     const handleSort = (e) => {
         setSort(e.target.value);
         dispatch(sortByPrice(e.target.value));
+        dispatch(setCurrentPage(1));
     };
 
     const HandleAddToCart = (productId) => {

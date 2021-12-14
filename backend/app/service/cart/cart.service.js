@@ -94,5 +94,16 @@ class cartService {
     cart = await cart[0].save();
     return cart;
   };
+  deleteCart= async(userId) => {
+    let cart;
+    try {
+        cart = await Cart.find({userId: userId});
+    } catch (err) {
+        console.log(err);
+        logger.error(err);
+    }
+    await cart[0].delete();
+    return ("Successfully deleted")
+  };
 }
 module.exports = new cartService();

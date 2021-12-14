@@ -8,3 +8,19 @@
     border: 1px solid #E2E2E2;
     opacity: 1;
   }
+  .MuiIconButton-root {
+    color: white;
+    padding: 0;
+  }
+  
+  .rightIcons {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding-left: 42.6em;
+    text-decoration: none;
+    font-size: 27px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }

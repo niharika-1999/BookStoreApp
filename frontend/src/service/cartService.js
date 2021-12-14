@@ -21,6 +21,7 @@ export const create = (data) => {
 };
 
 export const deleteItems = (id) => {
+    console.log(id);
     let url=`http://localhost:4000/cart/${token}/${id}`
     return deleteCart(url).then((response) => {
         return response;
@@ -28,3 +29,12 @@ export const deleteItems = (id) => {
         throw err;
     })
 };
+
+export const emptyCart = (id) => {
+    let url=`http://localhost:4000/cart/${token}`;
+    return deleteCart(url).then((response) => {
+        return response;
+    }).catch((err) => {
+        throw err;
+    });
+}
