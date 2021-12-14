@@ -5,7 +5,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
 import "../styles/books.scss";
 import PaginationPage from "./Pagination";
-import { sortByPrice, setCurrentPage } from "../actions/booksAction";
+import { sortByPrice, setCurrentPage, setCart } from "../actions/booksAction";
+import {create} from '../service/cartService';
+
 
 const useStyles = makeStyles((theme) => ({
     bookName: {
@@ -32,9 +34,11 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: "2px",
     },
     addedBagButton: {
-        backgroundColor: "#1976D2",
+        background: "#3371B5 0% 0% no-repeat padding-box",
+        opacity: 1,
         width: "170px",
         margin: "5px",
+        marginLeft: "3em",
         color: "#ffff",
         borderRadius: "2px",
         fontSize: "11px",
@@ -44,9 +48,12 @@ const useStyles = makeStyles((theme) => ({
         margin: "5px",
         width: "80px",
         fontSize: "13px",
+        border: "1px solid #9D9D9D",
+        opacity: "1",
         borderRadius: "2px",
         fontWeight: "bold",
     },
+
 
     optionSelect: {
         padding: "5px 5px",
@@ -54,13 +61,14 @@ const useStyles = makeStyles((theme) => ({
 
     container: {
         paddingTop: theme.spacing(10),
-        maxWidth:'774px'
+        maxWidth: '774px'
     },
 }));
 
 export default function BookCard() {
     const classes = useStyles();
     const books = useSelector((state) => state.allBooks.searchedBooks);
+    const cart = useSelector((state) => state.allBooks.cartContents);
     const currentPage = useSelector((state) => state.allBooks.currentPage);
     const [booksPerPage] = useState(12);
     const [sort, setSort] = useState("");
@@ -75,26 +83,63 @@ export default function BookCard() {
         setSort(e.target.value);
         dispatch(sortByPrice(e.target.value));
     };
+
+    const HandleAddToCart = (productId) => {
+        const data = {
+            "productId": productId,
+            "quantity": 1
+        }
+        create(data).then((res) => {
+            console.log(res);
+            dispatch(setCart(res.data))
+        }).catch((err) => console.log(err.message));
+    }
+
+    const ButtonContainer = ({ data }) => {
+        return (
+            <div className="buttonContainer">
+                <Button className={
+                    classes.addToBagButton
+                }
+                    onClick={
+                        () => {
+                            let productId = data._id;
+                            HandleAddToCart(productId)
+                        }
+                    }>Add to bag</Button>
+                <Button className={
+                    classes.wishListButton
+                }>Wishlist</Button>
+            </div>
+        )
+    }
+
+    const AddedToBag = () => {
+        return (
+            <Button className={
+                classes.addedBagButton
+            }>Added To Bag</Button>
+        )
+    }
     return (
         <div className="displayBook">
-            <br />
             <span className="topContent">
                 <div>
                     Books <font className="bookSize">({books.length} items)</font>{" "}
                 </div>
                 <div>
-                    <FormControl variant="outlined" className={classes.formControl}>
+                    <FormControl variant="outlined" className={classes.formControl} style={{ paddingRight: "0.3em" }}>
                         <Select
                             className={classes.optionSelect}
                             native
+                            style={{ fontSize: "13px" }}
                             inputProps={{ name: "type" }}
                             value={sort}
                             onChange={handleSort}
                         >
-                            <option value={"rel"}>Sort by Relevance</option>
-                            <option value={"asc"}>Price: Low to High</option>
-                            <option value={"desc"}>Price: High to Low</option>
-                            <option value={"new"}>Newest Arrival</option>
+                            <option value={"rel"} style={{ fontSize: "11px" }}>Sort by Relevance</option>
+                            <option value={"asc"} style={{ fontSize: "11px" }}>Price: Low to High</option>
+                            <option value={"desc"} style={{ fontSize: "11px" }}>Price: High to Low</option>
                         </Select>
                     </FormControl>
                 </div>
@@ -115,10 +160,9 @@ export default function BookCard() {
                                 Rs. {data.price}
                             </Typography>
                         </div>
-                        <div className="buttonContainer">
-                            <Button className={classes.addToBagButton}>Add to bag</Button>
-                            <Button className={classes.wishListButton}>Wishlist</Button>
-                        </div>
+                        {
+                            ((cart.length !== 0) && (cart.items.some(obj => obj.name === data.title))) ? <AddedToBag /> : <ButtonContainer data={data} />
+                        }
                         <div className="descClass">
                             <Typography className={
                                 classes.bookName

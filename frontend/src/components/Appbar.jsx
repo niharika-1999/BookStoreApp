@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../styles/appbar.scss";
 import SearchIcon from "@mui/icons-material/Search";
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { IconButton, TextField, InputAdornment } from "@mui/material";
 import { useSelector } from "react-redux";
 import { setSearchedBooks } from "../actions/booksAction";
 import { useDispatch } from "react-redux";
 import { setCurrentPage } from "../actions/booksAction";
 
-export default function Appbar() {
+export default function Appbar({setShowCart}) {
   const [search, setSearch] = useState("");
   const myBooks = useSelector((state) => state.allBooks.books);
   const dispatch = useDispatch();
@@ -16,6 +17,10 @@ export default function Appbar() {
     setSearch(searchValue);
     dispatch(setCurrentPage(1));
   };
+
+  const backToDashboard = () => {
+    window.location="/dashboard";
+  }
 
   useEffect(() => {
     console.log();
@@ -36,7 +41,7 @@ export default function Appbar() {
       <div className="navWide">
         <div className="wideDiv">
           <div className="heading-icon">
-            <div className="heading">BookStore</div>
+            <div className="heading" onClick={backToDashboard}> BookStore</div>
           </div>
 
           <div className="search-bar">
@@ -60,8 +65,12 @@ export default function Appbar() {
               }}
             />
           </div>
-          <div className="cart-icon" />
           <div className="cart">Cart</div>
+          <div className="rightIcons" align="right">
+          <IconButton onClick={()=>{setShowCart(true)}}>
+            <ShoppingCartOutlinedIcon />
+          </IconButton>
+          </div>
         </div>
       </div>
     </nav>

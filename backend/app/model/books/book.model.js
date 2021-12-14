@@ -38,4 +38,7 @@ const Book = mongoose.model("Book", BookSchema);
 const findAllBooks = () => {
     return Book.find();
 }
-module.exports= { findAllBooks }
+const findBook = (findId)=>{
+    return Book.findById(findId)
+}
+module.exports= { findAllBooks , findBook}

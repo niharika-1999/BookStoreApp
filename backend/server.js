@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const routeUsers = require("./app/route/users/user.route");
 const routeBooks = require("./app/route/books/book.routes");
+const routeCart = require("./app/route/cart/cart.route");
 const dbConnect = require("./config/dbConnect");
 const logger = require("./config/logger");
 const cors = require("cors");
@@ -20,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/users", routeUsers);
 app.use("/books", routeBooks);
+app.use("/cart", routeCart);
 
 // defining a simple route
 app.get("/", (req, res) => {

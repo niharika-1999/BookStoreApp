@@ -3,6 +3,7 @@ const intialState = {
   books: [],
   searchedBooks: [],
   currentPage: 1,
+  cartContents: [],
 };
 
 function sortDescendingOrder(array, field) {
@@ -56,7 +57,24 @@ export const booksReducer = (state = intialState, { type, payload }) => {
         ...state,
         currentPage: payload,
       };
-    default:
-      return state;
-  }
-};
+      case ActionTypes.SET_CART:
+        return {
+          ...state,
+          cartContents: payload,
+        };
+      case ActionTypes.ADD_TO_CART:
+        return {
+          ...state,
+          cartContents: [...state.cartContents, payload],
+        };
+      case ActionTypes.DELETE_FROM_CART:
+        return {
+          ...state,
+          cartContents: state.cartContents.filter(
+            (item) => item.productId !== payload
+          ),
+        };
+      default:
+        return state;
+    }
+  };
