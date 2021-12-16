@@ -3,7 +3,7 @@ const logger = require("../../../config/logger");
 
 class cartController { 
 getCartItems = async (req, res) => {
-    const userId=req.params.id;
+    const userId=req.body.userId;
     try {
         const data = await cartService.getCart(userId);
         return res.send(data)
@@ -14,7 +14,7 @@ getCartItems = async (req, res) => {
     }
 };
 addCartItem = async (req, res) => {
-    const userId=req.params.id;
+    const userId=req.body.userId;
     const productId = req.body.productId;
     const quantity = req.body.quantity;
     try {
@@ -29,7 +29,7 @@ addCartItem = async (req, res) => {
 };
 
 deleteItem = async (req, res) => {
-    const userId = req.params.id;
+    const userId = req.body.userId;
     const productId = req.params.itemId;
     try {
         let cart = await cartService.deleteProduct(userId, productId);
@@ -43,9 +43,9 @@ deleteItem = async (req, res) => {
 };
 
 deleteCart = async (req, res) => {
-    const userId = req.params.id;
+    const userId = req.body.userId;
     try {
-      let cart = await deleteCart(userId);
+      let cart = await cartService.deleteCart(userId);
       return res.status(201).send(cart);
     } catch (err) {
       console.log(err);

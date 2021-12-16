@@ -36,6 +36,11 @@ export default function Appbar({setShowCart}) {
     );
   }, [search, myBooks]);
 
+  const handleClickIcon = () => {
+    setShowCart(true); 
+    window.location="/cart"
+  }
+
   return (
     <nav>
       <div className="navWide">
@@ -67,7 +72,7 @@ export default function Appbar({setShowCart}) {
           </div>
           <div className="cart">Cart</div>
           <div className="rightIcons" align="right">
-          <IconButton onClick={()=>{setShowCart(true); window.location="/cart"}}>
+          <IconButton style={{ color: "white", marginRight: "6%" }} onClick={()=>{handleClickIcon()}}> 
             <ShoppingCartOutlinedIcon />
           </IconButton>
           </div>

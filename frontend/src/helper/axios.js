@@ -1,9 +1,9 @@
 import axios from "axios";
 import {setToken} from "../utils/userTokens";
 
-export const userConnect = (url, infos) => {
+export const userConnect = (method,url, infos) => {
     return axios({
-      method: "post",
+      method: method,
       url: url,
       data: infos,
       headers: {
@@ -17,6 +17,7 @@ export const userConnect = (url, infos) => {
       })
       .catch(function (error) {
         console.log(error);
+        throw new error();
       });
   };
   

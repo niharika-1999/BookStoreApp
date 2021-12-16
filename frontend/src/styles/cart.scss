@@ -15,3 +15,65 @@
     color: white;
     padding: 0;
   }
+  .success-image {
+    display: flex;
+    justify-content: center;
+    height: 225px;
+    opacity: 1;
+  }
+  .success-message {
+    position: absolute;
+    top: 50px;
+    width: 294px;
+    height: 30px;
+    text-align: left;
+    font: normal normal bold 25px/30px Lato;
+    letter-spacing: 0px;
+    color: #333232;
+    text-transform: capitalize;
+    opacity: 1;
+    padding-left: 1em;
+  }
+  .success-info {
+    width: 348px;
+    height: 66px;
+    padding-bottom: 5em;
+  }
+  .makeStyles-root-9 {
+    padding-top: 3em;
+  }
+  .contactImage {
+    padding-bottom: 1em;
+  }
+  .inputBox {
+    padding-left: 0.2em;
+    padding-right: 0;
+  }
+  .paper{
+    width: 724px;
+  }
+  .mainCart{
+    padding-top: 2.5em;
+  }
+  .mainboxCustomer{
+    padding-left: 10em;
+  }
+  .mainBoxOrder {
+    padding-left: 10em;
+  }
+  .myCart {
+    display: inline-block;
+    display: flex;
+  }
+  .image {
+    padding: 6px 0;
+  }
+  .bookDetails {
+    padding-top: 1em;
+    padding-left: 4em;
+    padding-right: 13em;
+    width: 100%;
+  }
+  .css-12dpnmv-MuiGrid-root {
+    width: 100%;
+  }

@@ -3,7 +3,7 @@ const customerService = require("../../service/customerDetails/details.service")
 
 class customerController {
 createCustomer = (req, res) => {
-    const userId=req.params.id;
+    const userId=req.body.userId;
     const customerDetails=req.body;
     customerService.createNewCustomer(userId,customerDetails).then(result => {
         res.send(result);
@@ -14,7 +14,7 @@ createCustomer = (req, res) => {
 };
 
 findCustomer = (req, res) => {
-    const userId=req.params.id;
+    const userId=req.body.userId;
     customerService.getcustomer(userId).then(address => {
         res.send(address);
     }).catch(err => {

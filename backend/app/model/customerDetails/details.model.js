@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const CustomerSchema = mongoose.Schema({
-    userId: {type: String},
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
     name: {type: String},
     phoneNumber: {type: Number,required: true},
     pinCode: {type: String,required: true},
@@ -31,4 +34,21 @@ const createCustomer = (userId,customerDetails) => {
 const findCustomer = (userId) => {
     return Customer.find({userId: userId});
 };
-module.exports= { createCustomer, findCustomer };
+
+const updateCustomer = (userId, customerDetails) => {
+    return Customer.findOneAndUpdate({
+        userId: userId
+    }, {
+    name: customerDetails.name,
+    phoneNumber: customerDetails.phoneNumber,
+    pinCode: customerDetails.pinCode,
+    locality: customerDetails.locality,
+    address: customerDetails.address,
+    city: customerDetails.city,
+    landMark: customerDetails.landMark,
+    type: customerDetails.type
+    }, {new: true})
+
+};
+
+module.exports= { createCustomer, findCustomer, updateCustomer };

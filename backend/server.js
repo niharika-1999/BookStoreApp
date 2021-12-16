@@ -5,6 +5,7 @@ const routeUsers = require("./app/route/users/user.route");
 const routeBooks = require("./app/route/books/book.routes");
 const routeCart = require("./app/route/cart/cart.route");
 const routeCustomer = require("./app/route/customerDetails/details.route");
+const routeOrder = require('./app/route/order/order.route');
 const dbConnect = require("./config/dbConnect");
 const logger = require("./config/logger");
 const cors = require("cors");
@@ -24,17 +25,8 @@ app.use("/users", routeUsers);
 app.use("/books", routeBooks);
 app.use("/cart", routeCart);
 app.use("/customer", routeCustomer);
+app.use("/order", routeOrder);
 
-// defining a simple route
-app.get("/", (req, res) => {
-  res.json({
-    message:
-      "Welcome to BookStore application."
-  });
-  logger.info(
-    "Welcome to BookStore application."
-  );
-});
 
 // listen for requests
 const server=app.listen(4000, () => {

@@ -122,6 +122,9 @@ export default function BookCard() {
             }>Added To Bag</Button>
         )
     }
+    console.log(books);
+    console.log(currentBooks);
+
     return (
         <div className="displayBook">
             <span className="topContent">
@@ -138,9 +141,9 @@ export default function BookCard() {
                             value={sort}
                             onChange={handleSort}
                         >
-                            <option value={"rel"} style={{ fontSize: "11px" }}>Sort by Relevance</option>
-                            <option value={"asc"} style={{ fontSize: "11px" }}>Price: Low to High</option>
-                            <option value={"desc"} style={{ fontSize: "11px" }}>Price: High to Low</option>
+                            <option value={"rel"} style={{ fontSize: "15px" }}>Sort by Relevance</option>
+                            <option value={"asc"} style={{ fontSize: "15px" }}>Price: Low to High</option>
+                            <option value={"desc"} style={{ fontSize: "15px" }}>Price: High to Low</option>
                         </Select>
                     </FormControl>
                 </div>
@@ -162,7 +165,7 @@ export default function BookCard() {
                             </Typography>
                         </div>
                         {
-                            ((cart.length !== 0) && (cart.items.some(obj => obj.name === data.title))) ? <AddedToBag /> : <ButtonContainer data={data} />
+                            ((cart && cart.length !== 0) && (cart.items.some(obj => obj.name === data.title))) ? <AddedToBag /> : <ButtonContainer data={data} />
                         }
                         <div className="descClass">
                             <Typography className={

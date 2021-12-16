@@ -44,3 +44,10 @@ export const deleteCart = (bookId) => {
     payload: bookId
   }
 };
+
+export const setOrderID = (orderId) => {
+  return {
+    type: ActionTypes.ORDER_ID,
+    payload: orderId
+  }
+};

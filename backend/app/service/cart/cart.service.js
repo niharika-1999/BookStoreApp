@@ -83,7 +83,6 @@ class cartService {
       cart = await Cart.find({ userId: userId });
     } catch (err) {
         logger.error(err);
-      console.log(err);
     }
     let itemIndex = cart[0].items.findIndex((p) => p.productId == productId);
     if (itemIndex > -1) {
@@ -94,6 +93,7 @@ class cartService {
     cart = await cart[0].save();
     return cart;
   };
+  
   deleteCart= async(userId) => {
     let cart;
     try {

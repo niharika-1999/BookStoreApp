@@ -1,6 +1,6 @@
 import React, {useEffect,useState} from "react";
 import { getAllBooks } from "../service/booksInDashboard";
-import {useDispatch,useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {setBooks,setCart} from "../actions/booksAction";
 import Appbar from '../components/Appbar';
 import BookCard from "../components/BookCard";
@@ -16,6 +16,7 @@ export default function Dashboard() {
         fetchitem(); 
         fetchCart();
     }, []);
+
     const fetchitem = () => {
         getAllBooks().then((res) => {
             dispatch(setBooks(res.data));
@@ -38,6 +39,8 @@ export default function Dashboard() {
         <Paper variant="outlined" sx={{ m: { xs: 2, md: 6 }, p: { xs: 2, md: 3 } ,border:"none"}}>
             <BookCard/> 
         </Paper>
+        <div style={{paddingTop:"62em"}}>
+        </div>
         </>
     );
 }

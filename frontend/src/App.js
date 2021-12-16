@@ -5,6 +5,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import Dashboard from "./pages/Dashboard";
 import Cart from "./pages/CartPage";
+import OrderComplete from "./pages/OrderPage" ;
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/reset/:token" exact component={ResetPassword} />
           <Route path="/dashboard" exact component={Dashboard} />
           <Route path="/cart" exact component={Cart} /> 
+          <Route path="/orderComplete" exact component={OrderComplete} />
       </Router>
     </div>
   );
