@@ -1,9 +1,20 @@
+/**
+ * @file            : order.service.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ */
 const logger = require('../../../config/logger');
 const Order = require('../../model/order/order.model');
 const { getCart } = require('../cart/cart.service');
 const { getcustomer } = require('../customerDetails/details.service');
 
 class orderService {
+/**
+ * @description to fetch a particular order
+ * @param {Object} userId 
+ * @returns 
+ */
     getOrder = async (userId) => {
         let order;
         try {
@@ -18,6 +29,12 @@ class orderService {
             return null;
         }
     };
+
+/**
+ * @description to add order in the database
+ * @param {Object} userId 
+ * @returns 
+ */
 
     addToOrder = async (userId) => {
         let cart;

@@ -30,17 +30,19 @@ export default function Cart() {
   return (
     <>
       <Appbar />
-      {cart && cart.length === undefined ? (
+      {cart && Object.keys(cart).length !== 0 ? (
         <CartCard cart={cart} />
       ) : (
-        <Paper
-          variant="outlined"
-          sx={{ m: { xs: 1, md: 5 }, p: { xs: 1, md: 2 }, maxWidth: "724px" }}
-        >
-          <Typography variant="h6" gutterBottom sx={{ py: 3 }}>
-            My Cart (0 items)
-          </Typography>
-        </Paper>
+        <div style={{ paddingLeft: "5em", paddingBottom: "22.7em" }}>
+          <Paper
+            variant="outlined"
+            sx={{ m: { xs: 1, md: 5 }, p: { xs: 1, md: 2 }, maxWidth: "724px" }}
+          >
+            <Typography variant="h6" gutterBottom sx={{ py: 3 }}>
+              My Cart (0 items)
+            </Typography>
+          </Paper>
+        </div>
       )}
     </>
   );

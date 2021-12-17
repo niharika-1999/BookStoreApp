@@ -1,3 +1,9 @@
+/**
+ * @file            : cart.middleware.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ */
 const jwtHelper = require('../../utils/jwt');
 const logger = require('../../config/logger');
 
@@ -12,7 +18,6 @@ const ensureToken = (req, res, next) => {
 
     if (authHeader) {
         const token = authHeader.split(' ')[1];
-        console.log(authHeader)
         jwtHelper.verifyToken(token, (err, user) => {
             if (err) {
                 logger.error(err);

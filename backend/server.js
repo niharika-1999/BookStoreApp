@@ -1,3 +1,9 @@
+/* *
+ * @file            : server.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ **/
 const express = require("express");
 const bodyParser = require("body-parser");
 require("dotenv").config();

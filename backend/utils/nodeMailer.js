@@ -1,3 +1,9 @@
+/**
+ * @file            : nodeMailer.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ */
 var nodemailer = require("nodemailer");
 require('dotenv').config();
 
@@ -20,7 +26,7 @@ class nodeMailer {
       from: "niharikarao.nr19@gmail.com",
       to: email,
       subject: "Sending Sample Email using Node.js",
-      html: `<a href='http://localhost:3000/reset/${token}'>click here</a>`,
+      html: `<a href='http://localhost:3000/reset/${token}'>click here to reset password</a>`,
       text: "Password reset",
     };
 

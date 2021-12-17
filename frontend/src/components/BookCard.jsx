@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import "../styles/books.scss";
 import PaginationPage from "./Pagination";
 import { sortByPrice, setCurrentPage, setCart } from "../actions/booksAction";
-import {create} from '../service/cartService';
+import { create } from '../service/cartService';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -112,8 +112,8 @@ export default function BookCard() {
                     classes.wishListButton
                 }>Wishlist</Button>
             </div>
-        )
-    }
+        );
+    };
 
     const AddedToBag = () => {
         return (
@@ -121,9 +121,7 @@ export default function BookCard() {
                 classes.addedBagButton
             }>Added To Bag</Button>
         )
-    }
-    console.log(books);
-    console.log(currentBooks);
+    };
 
     return (
         <div className="displayBook">
@@ -164,16 +162,17 @@ export default function BookCard() {
                                 Rs. {data.price}
                             </Typography>
                         </div>
-                        {
-                            ((cart && cart.length !== 0) && (cart.items.some(obj => obj.name === data.title))) ? <AddedToBag /> : <ButtonContainer data={data} />
-                        }
+                        {cart &&
+                            Object.keys(cart).length !== 0 &&
+                            cart.items.some((obj) => obj.name === data.title) ? (
+                            <AddedToBag />
+                        ) : (
+                            <ButtonContainer data={data} />
+                        )}
                         <div className="descClass">
-                            <Typography className={
-                                classes.bookName
-                            }>Book Detail</Typography>
-                            {
-                                data.description
-                            } </div>
+                            <Typography className={classes.bookName}>Book Detail</Typography>
+                            {data.description}{" "}
+                        </div>
                     </div>
                 ))}
             </div>

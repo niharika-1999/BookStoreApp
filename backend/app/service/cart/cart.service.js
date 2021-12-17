@@ -1,14 +1,24 @@
+/**
+ * @file            : cart.service.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ */
 const Cart = require("../../model/cart/cart.model");
 const { findABook } = require("../books/book.service");
 const logger = require("../../../config/logger");
 
 class cartService {
+  /**
+   * @description to fetch the cart
+   * @param {Object} userId 
+   * @returns data or error
+   */
   getCart = async (userId) => {
     let cart;
     try {
       cart = await Cart.find({ userId: userId });
     } catch (err) {
-      console.log(err);
       logger.error(err);
     }
     if (cart && cart[0].items.length > 0) {
@@ -17,6 +27,14 @@ class cartService {
       return null;
     }
   };
+
+  /**
+   * @description to add an item to the cart
+   * @param {Object} userId 
+   * @param {Object} productId 
+   * @param {Object} quantity 
+   * @returns data or error
+   */
   addToCart = async (userId, productId, quantity) => {
     let item;
     let cart;
@@ -77,6 +95,13 @@ class cartService {
       return newCart;
     }
   };
+
+  /**
+   * @description to delete an item from the cart
+   * @param {Object} userId 
+   * @param {Object} productId
+   * @returns data or error
+   */
   deleteProduct = async (userId, productId) => {
     let cart;
     try {

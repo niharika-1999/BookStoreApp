@@ -1,3 +1,9 @@
+/**
+ * @file            : book.model.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ */
 const mongoose = require('mongoose');
 var validate = require('mongoose-validator');
 var urlValidator = [validate( { 
@@ -35,9 +41,18 @@ const BookSchema = mongoose.Schema({
 );
 
 const Book = mongoose.model("Book", BookSchema);
+/**
+ * @description to find all the books present in the database
+ * @returns data
+ */
 const findAllBooks = () => {
     return Book.find();
 }
+
+/**
+ * @description to find a book present in the database
+ * @returns data
+ */
 const findBook = (findId)=>{
     return Book.findById(findId)
 }

@@ -1,4 +1,10 @@
-const mongoose = require('mongoose');
+/**
+ * @file            : dbConnect.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ */
+ const mongoose = require('mongoose');
  const dbConfig = require('../config/database.config');
  const logger = require('../config/logger');
  /**

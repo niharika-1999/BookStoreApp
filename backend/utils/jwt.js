@@ -1,3 +1,9 @@
+/**
+ * @file            : jwt.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ */
 require('dotenv').config();
  const jwt = require("jsonwebtoken");
  const crypto = require('crypto');

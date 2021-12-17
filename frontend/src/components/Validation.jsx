@@ -18,5 +18,5 @@ export function Validation(initialFValues, validateOnChange = false, validate) {
         setValues,
         setErrors,
         handleInputChange
-    }
+    };
 }

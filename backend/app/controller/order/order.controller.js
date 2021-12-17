@@ -1,7 +1,20 @@
+/**
+ * @file            : order.controller.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ */
+
 const orderService = require("../../service/order/order.service");
 const logger = require('../../../config/logger');
 
 class orderController {
+/**
+ * @description to fetch all the ordered item from the database
+ * @param {Object} req 
+ * @param {Object} res 
+ * @returns data or error
+ */
 getOrderItems = async (req, res) => {
     const userId=req.body.id;
     try {
@@ -14,9 +27,14 @@ getOrderItems = async (req, res) => {
     }
 };
 
+/**
+ * @description to add an ordered item to the database
+ * @param {Object} req 
+ * @param {Object} res 
+ * @returns data or error
+ */
 addOrderItem = async (req, res) => {
     const userId=req.body.userId;
-    console.log(userId)
     try {
         const data = await orderService.addToOrder(userId);
         return res.status(201).send(data);

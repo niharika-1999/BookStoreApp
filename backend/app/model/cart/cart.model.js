@@ -1,3 +1,9 @@
+/**
+ * @file            : cart.model.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 07-12-2021
+ */
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

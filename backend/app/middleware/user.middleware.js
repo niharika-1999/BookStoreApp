@@ -1,3 +1,9 @@
+/**
+ * @file            : user.middleware.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ */
 const { body, validationResult } = require("express-validator");
 
 /**

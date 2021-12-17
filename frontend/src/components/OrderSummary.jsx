@@ -4,18 +4,21 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { emptyCart } from '../service/cartService';
-import { setCart } from "../actions/booksAction";
+import { setCart,setOrderID } from "../actions/booksAction";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import "../styles/cart.scss";
 
 export default function OrderSummary({ showOrder, orders }) {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleSubmit = () => {
         emptyCart().then((res) => { console.log(res) }).catch((err) => { console.log(err) });
         dispatch(setCart());
-        window.location = "/orderComplete";
-    }
+        dispatch(setOrderID(orders._id));
+        history.push("/orderComplete");
+    };
 
     return (
         <div className="mainBoxOrder">
@@ -70,7 +73,7 @@ export default function OrderSummary({ showOrder, orders }) {
                             </Button></Grid>
                     </Grid>
 
-                ) : ""}
+                ) : ( "")}
             </Paper>
         </div>
     )

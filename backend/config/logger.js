@@ -1,10 +1,16 @@
+/**
+ * @file            : logger.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ */
 const {
     createLogger,
     transports,
     format } = require('winston');
 /**
  * @description createLogger method of winston is used to generate log messages
- * transports defines storage path, it can be configured at various levels
+   which can be configured at various levels
  */
 const logger = createLogger({
     level: 'info',

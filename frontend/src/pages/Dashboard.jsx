@@ -10,7 +10,6 @@ import "../styles/dashboard.scss"
 
 export default function Dashboard() {
     const dispatch = useDispatch();
-    const [showCart,setShowCart]=useState(false);
     
     useEffect(() => {
         fetchitem(); 
@@ -33,14 +32,17 @@ export default function Dashboard() {
         });
     }
     
-    return(
+    return (
         <>
-        <Appbar setShowCart={setShowCart} />
-        <Paper variant="outlined" sx={{ m: { xs: 2, md: 6 }, p: { xs: 2, md: 3 } ,border:"none"}}>
-            <BookCard/> 
-        </Paper>
-        <div style={{paddingTop:"62em"}}>
-        </div>
+          <Appbar />
+          <Paper
+            variant="outlined"
+            sx={{ m: { xs: 2, md: 6 }, p: { xs: 2, md: 3 }, border: "none" }}
+          >
+            <BookCard />
+          </Paper>
+          <div style={{ paddingTop: "62em" }}>
+          </div>
         </>
-    );
-}
+      );
+    }

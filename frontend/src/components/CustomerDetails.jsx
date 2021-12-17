@@ -45,6 +45,7 @@ export default function CustomerDetails({ showCustomer, setShowOrder, setOrder }
         setErrors,
         handleInputChange
     } = Validation(initialFValues, true, validate);
+
     const data = {
         name: values.name,
         phoneNumber: values.phoneNumber,
@@ -134,7 +135,7 @@ export default function CustomerDetails({ showCustomer, setShowOrder, setOrder }
                             Continue
                         </Button>
                     </div>
-                </Grid>) : " "}</Paper>
+                </Grid>) : (" ")}</Paper>
         </div>
-    )
-}
+    );
+};

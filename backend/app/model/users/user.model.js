@@ -1,3 +1,9 @@
+/**
+ * @file            : user.model.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ */
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
@@ -120,6 +126,10 @@ class UserModels {
         throw err;
       });
   };
+
+  /**
+    * function for a user to reset the password
+    */
   resetPassword = (token, newPassword) => {
     return User.findOne({ resetPasswordToken: token })
       .then((data) => {
