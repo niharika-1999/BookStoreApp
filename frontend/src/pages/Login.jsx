@@ -57,13 +57,13 @@ export default function Login() {
             <div>
               <div className="main" align="center">
                 <Grid align="center" className="headingAndSubHeading">
-                  <span className="mainLogoLogin">Book Store</span>
+                  <span className="mainLogoLogin">BookStore</span>
                   <br />
                   <Typography variant="h6" gutterBottom>
                     <b> Sign In</b>
                   </Typography>
                   <Typography variant="h7" gutterBottom>
-                    <b> Use your Book Store Account</b>
+                    <b> Use your BookStore Account</b>
                   </Typography>
                 </Grid>
                 <div style={{ width: "418px" }}>

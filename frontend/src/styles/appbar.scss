@@ -1,7 +1,7 @@
 nav {
   top: 0px;
-  left: 0px;
-  width: 100%;
+  left: 5px;
+  width: 1348px;
   height: 60px;
   background: #a03037 0% 0% no-repeat padding-box;
   opacity: 1;
@@ -85,4 +85,18 @@ nav .heading-icon {
   border-radius: 50%;
   top: -7px;
   right: -5px;
+}
+@media screen and (max-width: 680px) {
+  .heading-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start
+  }
+  .input {
+    display: none;
+  }
+  .rightIcons {
+    display: flex;
+    justify-content: left;
+  }
 }

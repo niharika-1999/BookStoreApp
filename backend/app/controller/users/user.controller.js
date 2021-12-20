@@ -1,3 +1,9 @@
+/**
+ * @file            : user.controller.js
+ * @author          : Niharika Rao
+ * @version         : 1.0
+ * @since           : 16-12-2021
+ */
 const logger = require("../../../config/logger");
 const userService = require("../../service/users/user.service");
 const { validationResult } = require("express-validator");

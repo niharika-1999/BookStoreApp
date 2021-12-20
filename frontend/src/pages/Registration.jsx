@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/registration.css'
-import createAccounts from "../assets/createAccounts.png"
+import bookStoreReg from "../assets/bookStoreReg.png"
 import {firstNameValidation,lastNameValidation, emailValidation, passwordValidation} from "../config/formValidation";
 import { Grid, Typography, TextField, Button } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -73,10 +73,10 @@ export default function Registration() {
             <div>
               <div>
                 <Grid align="left" className="headingAndSubHeading">
-                  <span className="mainLogo">Book Store</span>
+                  <span className="mainLogo">BookStore</span>
                   <br />
                   <Typography variant="h6" gutterBottom>
-                    <b>Create your Book Store Account</b>
+                    <b>Create your BookStore Account</b>
                   </Typography>
                 </Grid>
                 <form id="form" name="form">
@@ -311,7 +311,7 @@ export default function Registration() {
                     </div>
                     <div className="img">
                       <img
-                        src={createAccounts}
+                        src={bookStoreReg}
                         width={260}
                         height={244}
                         style={{ verticalAlign: "middle" }}

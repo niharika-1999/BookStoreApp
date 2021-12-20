@@ -34,7 +34,7 @@ export default function ForgetPassword() {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <Typography variant="h5">
-                  <span className="mainLogoForgetPassword">Book Store</span>
+                  <span className="mainLogoForgetPassword">BookStore</span>
                 </Typography>
               </Grid>
               <Grid item xs={12}>

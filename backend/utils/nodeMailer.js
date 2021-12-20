@@ -18,7 +18,7 @@ class nodeMailer {
       service: "gmail",
       auth: {
         user: "niharikarao.nr19@gmail.com",
-        pass: "Niharika1999",
+        pass: process.env.PASSWORD,
       },
     });
 

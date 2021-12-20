@@ -3,6 +3,7 @@ import "../styles/appbar.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { IconButton, TextField, InputAdornment } from "@mui/material";
+import { searchABook } from '../service/booksInDashboard';
 import { useSelector } from "react-redux";
 import { setSearchedBooks } from "../actions/booksAction";
 import { useDispatch } from "react-redux";
@@ -24,18 +25,11 @@ export default function Appbar() {
   }
 
   useEffect(() => {
-    console.log();
-    dispatch(
-      setSearchedBooks(
-        myBooks.filter((item) => {
-          return (
-            item.title.toLowerCase().includes(search.toLowerCase()) ||
-            item.author.toLowerCase().includes(search.toLowerCase())
-          );
-        })
-      )
-    );
-  }, [search, myBooks]);
+    searchABook({"searchText":search}).then((res)=>{
+        dispatch(setSearchedBooks(res.data))
+    }).catch((err)=>console.log(err))
+    // eslint-disable-next-line
+}, [search, myBooks]);
 
   const handleClickIcon = () => { 
     window.location="/cart"

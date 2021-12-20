@@ -124,6 +124,23 @@ select {
   color: white;
 }
 
+.out-of-stock {
+  position: absolute;
+  width: 178px;
+  height: 37px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 2px;
+  letter-spacing: 0px;
+  color: #0b0203;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 3px;
+  padding-top: 7px;
+  text-align: center;
+}
+
 @media only screen and (max-width: 500px) {
   .displayBook {
     width: 90%;
